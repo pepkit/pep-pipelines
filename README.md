@@ -5,12 +5,12 @@ Example simple and bioinformatic pipelines using PEPs and pypiper.
 
 Here, we're counting lines using `wc`.
 
-We can call it manually on a single sample:
+We can call it manually on a single file:
 ```
 pipelines/pypiper_wc.py --input /scratch/jps3dp/tools/databio//pep-pypiper/simple/examples/rand1.txt -O /project/shefflab/processed//pep-pypiper/simple/wc/results_pipeline
 ```
 
-Or, we can use `looper` to call in on one or many samples:
+Or, we can use `looper` to call it on one or many files:
 ```
 looper run wc_config.yaml --package local
 ```
