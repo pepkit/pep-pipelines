@@ -1,0 +1,8 @@
+# tools
+tools:  # absolute paths to required tools
+  python: python
+  bowtie2: bowtie2
+
+# user configure 
+resources:
+  genome_config: ${REFGENIE}
