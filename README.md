@@ -12,7 +12,7 @@ pipelines/pypiper_wc.py --input /scratch/jps3dp/tools/databio//pep-pypiper/simpl
 
 Or, we can use `looper` to call it on one or many files:
 ```
-looper run wc_config.yaml --package local
+looper run examples/wc_config.yaml --package local
 ```
 
 ## Bioinformatics pipeline
