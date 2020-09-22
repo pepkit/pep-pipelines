@@ -1,0 +1,20 @@
+description: A PEP for files to count the number of lines.
+imports: 
+  - http://schema.databio.org/pep/2.0.0.yaml
+properties:
+  samples:
+    type: array
+    items:
+      type: object
+      properties:
+        filename:
+          type: string
+          description: "A file."
+      required:
+        - filename
+      required_files:
+        - filename
+      files:
+        - filename
+required:
+  - samples
