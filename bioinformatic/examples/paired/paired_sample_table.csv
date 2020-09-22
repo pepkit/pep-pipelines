@@ -1,4 +1,2 @@
-sample_name,protocol,filename
-rand1,wc,F
-rand1,wc,F
-rand1,wc,F
+sample_name,protocol,organism,read1,read2
+paired-end,bowtie2,human,FQ1,FQ2

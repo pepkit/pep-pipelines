@@ -12,8 +12,8 @@ sample_modifiers:
   derive:
     attributes: [read1, read2]
     sources:
-      FQ1: $CODE/pep-pypiper/bioinformatic/examples/paired/{filename}_1.fq.gz
-      FQ2: $CODE/pep-pypiper/bioinformatic/examples/paired/{filename}_2.fq.gz
+      FQ1: $CODE/pep-pypiper/bioinformatic/examples/paired/{sample_name}_1.fq.gz
+      FQ2: $CODE/pep-pypiper/bioinformatic/examples/paired/{sample_name}_2.fq.gz
   imply:
     - if: 
         organism: ["human", "Homo sapiens", "Human", "Homo_sapiens"]

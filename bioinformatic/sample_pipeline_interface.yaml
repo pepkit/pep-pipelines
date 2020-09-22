@@ -8,7 +8,6 @@ command_template: >
   --input {sample.read1}
   --genome {sample.genome}
   --sample-name {sample.sample_name}
-  --single-or-paired {sample.read_type}
   -O {looper.results_subdir}
   -P {compute.cores}
   -M {compute.mem}

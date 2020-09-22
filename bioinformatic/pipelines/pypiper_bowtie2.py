@@ -59,22 +59,14 @@ def main():
     global pm
     pm = pypiper.PipelineManager(
         name="bowtie2", outfolder=outfolder, args=args, version=__version__)
-
-    # Set paired end status.
-    args.paired_end = args.single_or_paired.lower() == "paired"
-    
-    # Confirm paired end status was set if two input files are provided.
-    if args.input2 and not args.paired_end:
-        err_msg = ("Incompatible settings: You specified single-end, " + 
-                   "but provided --input2.")
-        pm.fail_pipeline(RuntimeError(err_msg))
     
     # Create convenience aliases.
     tools = pm.config.tools
     res = pm.config.resources
-    unmap_fq1 = args.input[0]   
-    if args.paired_end:
+    unmap_fq1 = args.input[0]
+    if args.input2[0]:
         unmap_fq2 = args.input2[0]
+        paired_end = True
     
     # Create a refgenconf object to access genome assets.
     #   See: http://refgenie.databio.org/en/latest/refgenconf/
@@ -102,7 +94,7 @@ def main():
     
     # Add bowtie2 parameters.
     bt2_options = "--very-sensitive"
-    if args.paired_end:
+    if paired_end:
         bt2_options += " -X 2000"
     
     # Construct the base bowtie2 command which the PipelineManager will run.
@@ -117,7 +109,7 @@ def main():
     ])
 
     # Add custom arguments for paired end or single end input data.
-    if args.paired_end:
+    if paired_end:
         bt2_cmd += " -1 " + unmap_fq1 + " -2 " + unmap_fq2
     else:
         bt2_cmd += " -U " + unmap_fq1

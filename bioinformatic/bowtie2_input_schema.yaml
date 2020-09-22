@@ -16,10 +16,6 @@ properties:
         genome:
           type: string
           description: "Refgenie genome registry identifier"
-        read_type:
-          type: string
-          description: "Is this single or paired-end data?"
-          enum: ["SINGLE", "single", "PAIRED", "paired"]
         read1:
           type: string
           description: "Fastq file for read 1"
