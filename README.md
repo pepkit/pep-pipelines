@@ -7,7 +7,8 @@ Example simple and bioinformatic pipelines using PEPs and Snakemake.
 Here, we're counting lines using `wc`.
 
 ```
-snakemake --cores 1 --snakefile simple/pipelines/Snakefile
+cd simple/pipelines
+snakemake --cores 1
 ```
 
 ## Bioinformatics pipeline
@@ -28,5 +29,6 @@ Configure:
 ### 2. Run the pipeline
 
 ```
-snakemake --cores 4 --snakefile bioinformatic/pipelines/Snakefile
+cd bioinformatic/pipelines
+snakemake --cores 4
 ```
