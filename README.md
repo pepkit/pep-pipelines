@@ -10,7 +10,7 @@ Here, we're counting lines using `wc`.
 snakemake --cores 1 --snakefile simple/pipelines/Snakefile
 ```
 
-## Bioinformatics pipeline\
+## Bioinformatics pipeline
 
 Here, we're aligning fastq files using `bowtie2`.
 
