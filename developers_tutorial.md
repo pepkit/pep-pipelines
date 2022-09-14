@@ -57,9 +57,22 @@ modules for current pipeline. Tutorial how to do it can be found
 [here](https://nf-co.re/tools/#install-modules-in-a-pipeline).
 
 ## 6. Adjust the workflow responsible for input check
-In my case that was `modules/local/samplesheet_check.nf` and `subworkflows/local/input_check.nf`
+When incorporating new modules, the workflow will change. In my case changes were needed in 
+`modules/local/samplesheet_check.nf` and `subworkflows/local/input_check.nf`.
 
 ## 7. Create test config
+Developer should create test config so that user can run pipeline with PEP as input with minimal effort.
+In order to do it, new config profile should be added as shown in `taxprofiler` pull request.
+
 ## 8. Other information
-- how biocontainers and conda/bioconda work for nf-core
-- eido is already added 
+### Biocontainers
+In general all necessary modules (`eido/validate` and `eido/convert`) are already added to `nf-core modules`,
+but it may happen that the developer will need to add other tools. In order to do it, it's good to know how 
+this works for `nf-core`. To be able to use any container in `nf-core` pipelines they should be hosted on 
+`biocontainers` registry. Let's say that we want to add `peppy` as a tool and use it within a pipeline. 
+There are two ways to accomplish that:
+
+1. Put `peppy` to `bioconda`. This is the easiest way, and when `peppy` is available in `bioconda`, then
+   `biocontainers` provide an automated container creation for this tool.
+2. Manually add `peppy` to biocontainers. Detailed tutorial how to do it is available 
+   [here](https://biocontainers-edu.readthedocs.io/en/latest/contributing.html).
