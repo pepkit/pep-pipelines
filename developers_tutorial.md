@@ -1,8 +1,8 @@
 # Tutorial for integrating `nf-core` with PEP 
-This tutorial aims to provide the necessary background for the developers that 
-wish to incorporate PEP format into other `nf-core` 
-[pipelines](https://nf-co.re/pipelines). The example implementation could be found 
-in `taxprofiler` [pipeline](https://nf-co.re/taxprofiler). 
+This tutorial explains how to adapt `nf-core` 
+[pipelines](https://nf-co.re/pipelines) to accept sample metadata in PEP format.
+An example implementation can be found 
+in the `taxprofiler` [pipeline](https://nf-co.re/taxprofiler). 
 A pull request with all the changes needed can be found here. 
 The steps to accomplish that are as follows:
 
