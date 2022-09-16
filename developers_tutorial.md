@@ -1,4 +1,7 @@
 # Tutorial for integrating `nf-core` with PEP 
+
+## Introduction and summary
+
 This tutorial explains how to adapt `nf-core` 
 [pipelines](https://nf-co.re/pipelines) to accept sample metadata in PEP format.
 An example implementation can be found 
@@ -14,17 +17,19 @@ The steps to accomplish that are as follows:
 6. Adjust the workflow responsible for input check.
 7. Create `test_pep` config so that users can run simple PEP input example.
 
-Below one will find more detailed explanation of the tasks specified above as well 
-as the "Other information" section, that will provide additional resources that may be 
+Below is detailed explanation of these tasks as well 
+as other information with additional resources that may be 
 useful during implementation.
 
 ## 1. Rewrite all pipeline input checks
-In general `nf-core` pipelines usually consist of `check_samplesheet.py` 
-(or similarly named) Python script that is responsible for validation of 
-`samplesheet.csv` file (eg. if all mandatory columns are present in the file, 
-if all required columns have data, if extensions of the files are correct, etc.).
-The goal of this task is to create a PEP schema from scratch, so that it exactly reflects
-all the check from `check_samplesheet.py` Python script. Example PEP schema for `taxprofiler`
+
+In general, `nf-core` pipelines usually consist of a `check_samplesheet.py` 
+(or similarly named) Python script that is validates the 
+`samplesheet.csv` file. This validation checks if all mandatory columns are present in the file, 
+if all required columns have data, if extensions of the files are correct, etc.
+
+Here, we propose switching this approach to insetad use a PEP schema, so that the PEP validator (`eido`) can be used to accomplish 
+all checks formerly performed by `check_samplesheet.py`. Example PEP schema for `taxprofiler`
 pipeline can be found here.
 
 ## 2. Decouple in case of emergency
