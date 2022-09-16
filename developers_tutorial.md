@@ -1,11 +1,11 @@
 # Tutorial for integrating `nf-core` with PEP 
-This tutorial aims to provide the necessary background for the developers that 
-wish to incorporate PEP format into other `nf-core` 
-[pipelines](https://nf-co.re/pipelines). The example implementation could be found 
-in `taxprofiler` [pipeline](https://nf-co.re/taxprofiler).
-An example of all changes needed to integrate PEP-`nf-core` can be found in 
-[pull request](https://github.com/nf-core/taxprofiler/pull/133)
-in `taxprofiler` repository.
+## Introduction and summary
+
+This tutorial explains how to adapt `nf-core` 
+[pipelines](https://nf-co.re/pipelines) to accept sample metadata in PEP format.
+An example implementation can be found 
+in the `taxprofiler` [pipeline](https://nf-co.re/taxprofiler). 
+A pull request with all the changes needed can be found here. 
 The steps to accomplish PEP-`nf-core` integration for any `nf-core` pipeline are as follows:
 
 1. Rewrite all pipeline input checks to [PEP schema](http://eido.databio.org/en/latest/writing-a-schema/).
@@ -16,8 +16,8 @@ The steps to accomplish PEP-`nf-core` integration for any `nf-core` pipeline are
 6. Adjust the workflow responsible for input check.
 7. Create `test_pep` config so that users can run simple PEP input example.
 
-Below one will find more detailed explanation of the tasks specified above as well 
-as the "Other information" section, that will provide additional resources that may be 
+Below is detailed explanation of these tasks as well 
+as other information with additional resources that may be 
 useful during implementation.
 
 ## Steps to complete the integration
