@@ -2,5 +2,5 @@ This repository aims to show users how to run `nf-core` pipeline with PEP as inp
 
 The command would look something like that:
 ```
-nextflow run nf-core/taxprofiler -profile test_pep --outdir /home/cgf8xr/nextflow-output
+nextflow run main.nf -profile test_pep,docker --outdir <output_directory>
 ```
