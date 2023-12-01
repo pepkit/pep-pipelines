@@ -1,0 +1,4 @@
+pep_config: wc_project_config.yaml
+
+looper:
+  output_dir: "$TUTORIAL/results"

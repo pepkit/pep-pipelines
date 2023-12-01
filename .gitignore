@@ -127,3 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/pipelines/pep-pypiper/simple/results/*
+.idea

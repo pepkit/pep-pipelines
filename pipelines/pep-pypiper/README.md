@@ -7,12 +7,13 @@ Here, we're counting lines using `wc`.
 
 We can call it manually on a single file:
 ```
-pipelines/pypiper_wc.py --input /scratch/jps3dp/tools/databio//pep-pypiper/simple/examples/rand1.txt -O /project/shefflab/processed//pep-pypiper/simple/wc/results_pipeline
+simple/pipelines/pypiper_wc.py --input simple/examples/rand1.txt -O simple/results/
 ```
 
+Set env variable,e.g.  export TUTORIAL=/home/drc/GITHUB/pep-pipelines/pipelines/pep-pypiper/simple
 Or, we can use `looper` to call it on one or many files:
 ```
-looper run examples/wc_config.yaml --package local
+looper run --looper-config examples/.looper.yaml --package local
 ```
 
 ## Bioinformatics pipeline
