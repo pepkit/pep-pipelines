@@ -1,0 +1,18 @@
+pepfile: "../examples/wc_config.yaml"
+pepschema: "../wc_input_schema.yaml"
+
+samples = pep.sample_table
+
+rule all:
+    input:
+        expand(pep.config.output_dir + "/{x}/out.txt", x=pep.sample_table["sample_name"])
+
+rule count_lines:
+    # the wildcards attribute accessed in the lambda function has to match the wildcard in the output section
+    input:
+        lambda w: samples.loc[w.s]["filename"]
+    output:
+        f=os.path.join(pep.config.output_dir, "{s}/out.txt"),
+        d=directory(os.path.join(pep.config.output_dir, "{s}"))
+    shell:
+        "mkdir -p  {output.d}; wc -l {input} > {output.f}"
