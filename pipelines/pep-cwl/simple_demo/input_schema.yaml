@@ -1,0 +1,23 @@
+description: A schema describing a PEP with samples that have input files.
+imports:
+ - https://schema.databio.org/pep/2.0.0.yaml
+properties:
+  samples:
+    type: array
+    items:
+      type: object
+      properties:
+        sample_name:
+          type: string
+          description: "Name of the sample"
+        file:
+          type: string
+      required:
+        - sample_name
+        - file
+      files:
+        - file
+      required_files:
+        - file
+required:
+  - samples
