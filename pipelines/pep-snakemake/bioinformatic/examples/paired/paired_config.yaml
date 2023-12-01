@@ -1,0 +1,18 @@
+name: pypiper_bowtie2_paired
+
+pep_version: 2.0.0
+sample_table: paired_sample_table.csv
+
+output_dir: "$HOME/pep-snakemake/bioinformatic/bowtie2/paired"
+
+sample_modifiers:
+  derive:
+    attributes: [read1, read2]
+    sources:
+      FQ1: $CODE/pep-snakemake/bioinformatic/examples/paired/{sample_name}_1.fq.gz
+      FQ2: $CODE/pep-snakemake/bioinformatic/examples/paired/{sample_name}_2.fq.gz
+  imply:
+    - if: 
+        organism: ["human", "Homo sapiens", "Human", "Homo_sapiens"]
+      then: 
+        genome: hg38

@@ -1,0 +1,12 @@
+pipeline_name: bowtie2_alignment
+pipeline_type: sample
+input_schema: bowtie2_input_schema.yaml
+var_templates:
+  main: "{looper.piface_dir}/bowtie2-tool.cwl"
+  refgenie_config: "$REFGENIE"
+pre_submit:
+  python_functions:
+  - refgenconf.looper_refgenie_plugin
+  - looper.write_sample_yaml_cwl
+command_template: >
+  cwl-runner {pipeline.var_templates.main} {sample.sample_yaml_cwl}

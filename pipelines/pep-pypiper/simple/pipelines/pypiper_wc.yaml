@@ -1,0 +1,4 @@
+# absolute paths to required tools
+tools:
+  wc: wc
+

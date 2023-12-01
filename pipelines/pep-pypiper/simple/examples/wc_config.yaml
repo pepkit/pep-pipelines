@@ -1,0 +1,15 @@
+name: pypiper_wc
+
+pep_version: 2.0.0
+sample_table: wc_sample_table.csv
+
+looper:
+  output_dir: "$PROCESSED/pep-pypiper/simple/wc"
+
+sample_modifiers:
+  append:
+    pipeline_interfaces: ["$CODE/pep-pypiper/simple/sample_pipeline_interface.yaml"]
+  derive:
+    attributes: [filename]
+    sources:
+      F: $CODE/pep-pypiper/simple/examples/{sample_name}.txt
