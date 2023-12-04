@@ -1,0 +1,2 @@
+pep_config: paired_config.yaml
+output_dir: "$TUTORIAL/results"

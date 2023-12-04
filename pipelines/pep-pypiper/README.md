@@ -20,14 +20,16 @@ looper run --looper-config examples/.looper.yaml --package local
 
 Here, we're aligning fastq files using `bowtie2`.  It also requires the `bowtie2_index` asset managed by `refgenie`.
 
+Ensure, $REFGENIE is set e.g. export REFGENIE=/your/path/to/genome_config.yaml
+
 We can also run this manually on a single sample:
 ```
-pipelines/pypiper_bowtie2.py --input /scratch/jps3dp/tools/databio//pep-pypiper/bioinformatic/examples/paired/paired-end_1.fq.gz --genome hg38 --sample-name bowtie2_paired --single-or-paired paired -O /project/shefflab/processed//pep-pypiper/bioinformatic/bowtie2/paired/results_pipeline -P 4 -M 4000 --input2 /scratch/jps3dp/tools/databio//pep-pypiper/bioinformatic/examples/paired/paired-end_2.fq.gz
+bioinformatic/pipelines/pypiper_bowtie2.py --input bioinformatic/examples/paired/paired-end_1.fq.gz --genome hg38 --sample-name bowtie2_paired --single-or-paired paired -O simple/results/bowtie2/paired/results_pipeline -P 4 -M 4000 --input2 bioinformatic/examples/paired/paired/paired-end_2.fq.gz
 ```
 
 Or on one to many samples using `looper`:
 ```
-looper run examples/paired/paired_config.yaml --package local
+looper run --looper-config bioinformatic/examples/paired/.looper.yaml --package local
 ```
 
 
