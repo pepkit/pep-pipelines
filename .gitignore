@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 /pipelines/pep-pypiper/simple/results/*
 .idea
+/pipelines/pep-cwl/pipeline_results/submission/

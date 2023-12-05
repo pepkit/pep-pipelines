@@ -33,7 +33,7 @@ Looper uses a [pipeline interface](simple_demo/cwl_interface.yaml) to describe h
 To run these commands, invoke `looper run`, passing the project configuration file, like this:
 
 ```
-looper run project_config.yaml
+looper run --looper-config .looper.yaml
 ```
 
 This will run the `cwl-runner wc-tool.cwl ...` command on *each row in the sample table*. While there is also a built-in CWL approach to scatter workflows, there are a few nice things about the looper approach:
