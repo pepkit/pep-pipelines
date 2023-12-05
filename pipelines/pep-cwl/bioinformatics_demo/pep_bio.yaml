@@ -10,8 +10,8 @@ sample_modifiers:
   derive:
     attributes: [read1, read2, Index, InputFile1, InputFile2]
     sources:
-      FQ1: "data/{sample_name}_1.fq.gz"
-      FQ2: "data/{sample_name}_2.fq.gz"
+      FQ1: "bioinformatics_demo/data/{sample_name}_1.fq.gz"
+      FQ2: "bioinformatics_demo/data/{sample_name}_2.fq.gz"
       RG1: "refgenie://{genome}/bwa_index"
   imply:
     - if: 

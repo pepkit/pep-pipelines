@@ -33,7 +33,7 @@ Looper uses a [pipeline interface](simple_demo/cwl_interface.yaml) to describe h
 To run these commands, invoke `looper run`, passing the project configuration file, like this:
 
 ```
-looper run --looper-config .looper.yaml
+looper run --looper-config .looper_simple.yaml
 ```
 
 This will run the `cwl-runner wc-tool.cwl ...` command on *each row in the sample table*. While there is also a built-in CWL approach to scatter workflows, there are a few nice things about the looper approach:
@@ -48,7 +48,7 @@ This demo will run a basic bowtie2 alignment.
 Running example:
 
 ```
-PATH="$PATH:$HOME/apps/bowtie2-2.4.1-linux-x86_64" looper run bioinformatics_demo/pep_bio.yaml
+PATH="$PATH:$HOME/apps/bowtie2-2.4.1-linux-x86_64" looper run --looper-config .looper_bio.yaml
 ```
 
 
