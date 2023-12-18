@@ -23,7 +23,7 @@ def get_bowtie2_index_asset(wildcards):
 
 rule all:
     input:
-        expand(os.path.join(pep.config.output_dir, "{s}", "{s}.sam"), s=samples["sample_name"])
+        expand(os.path.join(pep.config["output_dir"], "{s}", "{s}.sam"), s=samples["sample_name"])
 
 rule bt2_align:
     # the wildcards attribute accessed in the lambda function has to match 
@@ -34,7 +34,7 @@ rule bt2_align:
         r2=lambda w: samples.loc[w.s]["read2"],
         bowtie2_index_path=get_bowtie2_index_asset
     output:
-        d=directory(os.path.join(pep.config.output_dir, "{s}")),
-        f=os.path.join(pep.config.output_dir, "{s}", "{s}.sam")
+        d=directory(os.path.join(pep.config["output_dir"], "{s}")),
+        f=os.path.join(pep.config["output_dir"], "{s}", "{s}.sam")
     shell:
         "mkdir -p {output.d}; bowtie2 -p 2 -X 2000 --rg-id {wildcards.s} -x {params.bowtie2_index_path} -1 {params.r1} -2 {params.r2} > {output.f}"
