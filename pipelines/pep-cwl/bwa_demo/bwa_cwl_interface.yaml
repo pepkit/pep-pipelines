@@ -1,0 +1,8 @@
+pipeline_name: bwa_alignment
+pipeline_type: sample
+input_schema: bwa_input_schema.yaml
+pre_submit:
+  python_functions:
+  - looper.write_sample_yaml_cwl
+command_template: >
+  cwl-runner bwa-tool.cwl {sample.sample_yaml_cwl}

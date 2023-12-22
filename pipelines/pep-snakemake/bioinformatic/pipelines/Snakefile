@@ -1,0 +1,40 @@
+from refgenconf import RefGenConf as RGC, select_genome_config
+pepfile: "../examples/paired/paired_config.yaml"
+pepschema: "../bowtie2_input_schema.yaml"
+
+samples = pep.sample_table
+
+
+# Requires refgenconf and bowtie2 software to be installed
+
+# Requires the $REFGENIE environment variable to be set.
+# See: http://refgenie.databio.org/en/latest/refgenconf/
+
+def get_bowtie2_index_asset(wildcards):
+    """
+    Get the path to the bowtie2 index managed by refgenie
+
+    :param dict wildcards: the snakemake wildcards object
+    :return str: path to the bowtie2 index
+    """
+    rgc = RGC(select_genome_config())
+    return rgc.seek(genome_name=samples.loc[wildcards.s]["genome"], asset_name="bowtie2_index")
+
+
+rule all:
+    input:
+        expand(os.path.join(pep.config["output_dir"], "{s}", "{s}.sam"), s=samples["sample_name"])
+
+rule bt2_align:
+    # the wildcards attribute accessed in the lambda function has to match 
+    # the wildcard in the output section
+    params:
+        g=lambda w: samples.loc[w.s]["genome"],
+        r1=lambda w: samples.loc[w.s]["read1"],
+        r2=lambda w: samples.loc[w.s]["read2"],
+        bowtie2_index_path=get_bowtie2_index_asset
+    output:
+        d=directory(os.path.join(pep.config["output_dir"], "{s}")),
+        f=os.path.join(pep.config["output_dir"], "{s}", "{s}.sam")
+    shell:
+        "mkdir -p {output.d}; bowtie2 -p 2 -X 2000 --rg-id {wildcards.s} -x {params.bowtie2_index_path} -1 {params.r1} -2 {params.r2} > {output.f}"

@@ -1,0 +1,8 @@
+pipeline_name: count_lines
+pipeline_type: sample
+input_schema: input_schema.yaml
+pre_submit:
+  python_functions:
+    - looper.write_sample_yaml_cwl
+command_template: >
+  cwl-runner wc-tool.cwl {sample.sample_yaml_cwl}

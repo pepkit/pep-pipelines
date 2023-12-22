@@ -1,0 +1,16 @@
+pipeline_name: bowtie2
+pipeline_type: sample
+path: pipelines/pypiper_bowtie2.py
+input_schema: bowtie2_input_schema.yaml
+output_schema: bowtie2_output_schema.yaml
+command_template: >
+  {pipeline.path}
+  --input {sample.read1}
+  --genome {sample.genome}
+  --sample-name {sample.sample_name}
+  -O {looper.results_subdir}
+  -P {compute.cores}
+  -M {compute.mem}
+  {% if sample.read2 is defined %} --input2 {sample.read2} {% endif %}
+compute:
+  size_dependent_variables: resources-sample.tsv

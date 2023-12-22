@@ -1,0 +1,34 @@
+description: A demo of using bwa with CWL and looper
+imports: 
+  - http://schema.databio.org/pep/2.0.0.yaml
+properties:
+  samples:
+    type: array
+    items:
+      type: object
+      properties:
+        sample_name: 
+          type: string
+          description: "Name of the sample"
+        InputFile1:
+          type: string
+          description: "Fastq file for read 1"
+        InputFile2:
+          type: string
+          description: "Fastq file for read 2 (for paired-end experiments)"
+        Index:
+          type: string
+          description: Path to bwa index file folder
+      required:
+        - sample_name
+        - InputFile1
+        - genome
+      required_files:
+        - InputFile1
+        - Index
+      files:
+        - InputFile1
+        - InputFile2
+        - Index
+required:
+  - samples

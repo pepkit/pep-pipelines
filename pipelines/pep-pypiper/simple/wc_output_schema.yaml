@@ -1,0 +1,6 @@
+description: objects produced by pep-pypiper wc pipeline.
+properties:
+  samples:
+    type: array
+    items:
+  

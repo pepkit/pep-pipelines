@@ -1,0 +1,11 @@
+name: pypiper_wc
+pep_version: 2.0.0
+sample_table: wc_sample_table.csv
+
+sample_modifiers:
+  append:
+    pipeline_interfaces: ["$TUTORIAL/sample_pipeline_interface.yaml"]
+  derive:
+    attributes: [filename]
+    sources:
+      F: $TUTORIAL/examples/{sample_name}.txt

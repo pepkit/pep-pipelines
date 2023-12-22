@@ -1,0 +1,39 @@
+description: A PEP for NGS samples being aligned using pep-pypiper bowtie2 pipeline
+imports: 
+  - http://schema.databio.org/pep/2.0.0.yaml
+properties:
+  samples:
+    type: array
+    items:
+      type: object
+      properties:
+        sample_name: 
+          type: string
+          description: "Name of the sample"
+        organism: 
+          type: string
+          description: "Organism"
+        genome:
+          type: string
+          description: "Refgenie genome registry identifier"
+        read1:
+          type: string
+          description: "Fastq file for read 1"
+        read2:
+          type: string
+          description: "Fastq file for read 2 (for paired-end experiments)"
+        reference_index_prefix:
+          type: string
+          description: Path to Bowtie2 index
+      required:
+        - sample_name
+        - protocol
+        - read1
+        - genome
+      required_files:
+        - read1
+      files:
+        - read1
+        - read2
+required:
+  - samples

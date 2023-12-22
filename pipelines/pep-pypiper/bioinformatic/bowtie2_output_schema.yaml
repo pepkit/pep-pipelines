@@ -1,0 +1,13 @@
+description: objects produced by pep-pypiper bowtie2 pipeline.
+properties:
+  samples:
+    type: array
+    items:
+      type: object
+      properties:
+        aligned_sam: 
+          path: "{sample_name}_sort.sam"
+          type: string
+          description: "Reads mapped to genome in SAM format. Output from bowtie2."
+
+  
