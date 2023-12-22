@@ -7,6 +7,6 @@ Documentation and code examples for the following:
 3. pep-pypiper
 4. pep-snakemake
 
-All examples use `peppy >= v0.40.0` and `looper >= 1.6.0`
+All examples use `peppy >= v0.40.0`, `looper >= 1.6.0` and `piper>=0.14.0`
 
 Learn more about [Portable Encapsulated Projects](https://pep.databio.org/en/latest/).
